@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  bookscraping:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: bookscraping:lastest
+    depends_on:
+      - db
+    command: bash /data/start_service.sh
+    volumes: 
+      - ./:/data
+
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: dev
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+
+  
