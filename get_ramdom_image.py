@@ -12,6 +12,8 @@ def get_random_images(sample_number=10):
     if os.path.exists("sample_image"):
         shutil.rmtree("sample_image")
         os.mkdir("sample_image")
+    else:
+        os.mkdir("sample_image")
     with open("sample_image/info.csv", "a") as f_object:
         writer_object = writer(f_object)
         writer_object.writerow(FILED_NAME)
