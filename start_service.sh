@@ -1,2 +1,2 @@
-docker-compose build
-docker-compose up
+cd /data
+python bookscrape.py
